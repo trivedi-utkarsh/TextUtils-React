@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const Navbar = (props) => {
+  let m= props.mode==='light'?'dark':'light'
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
@@ -66,9 +67,7 @@ const Navbar = (props) => {
           {/* </ul>
         </div> */}
         <div
-          class={`form-check form-switch text-${
-            props.mode === "light" ? "dark" : "light"
-          }`}
+          class={`form-check form-switch text-${m}`}
         >
           <input
             class="form-check-input"
@@ -78,7 +77,7 @@ const Navbar = (props) => {
             onClick={props.toggleMode}
           />
           <label class="form-check-label" htmlFor="flexSwitchCheckDefault">
-            Enable Dark Mode
+            Enable {m} mode
           </label>
         </div>
       </div>

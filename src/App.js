@@ -11,17 +11,18 @@ function App() {
     if(mode==='light')
     {
       setmode('dark');
+      document.body.style.backgroundColor="grey";
     }
     else
     {
       setmode('light');
+      document.body.style.backgroundColor="white";
     }
   }
   return (
     <>
       <Navbar title="TextUtils"  mode={mode} toggleMode={toggleMode}/>
-      <h1 className="text-center my-3">Enter the text to analyze</h1>
-      <TextSection />
+      <TextSection mode={mode}/>
     </>
   );
 }
