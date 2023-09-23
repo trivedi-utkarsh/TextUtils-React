@@ -11,7 +11,8 @@ function App() {
     if(mode==='light')
     {
       setmode('dark');
-      document.body.style.backgroundColor="grey";
+      document.body.style.backgroundColor="#121111";
+      
     }
     else
     {
@@ -19,6 +20,8 @@ function App() {
       document.body.style.backgroundColor="white";
     }
   }
+
+  
   return (
     <>
       <Navbar title="TextUtils"  mode={mode} toggleMode={toggleMode}/>

@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 
 const Navbar = (props) => {
-  let m= props.mode==='light'?'dark':'light'
+  let m = props.mode === "light" ? "dark" : "light";
+
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid mx-5">
         <a className="navbar-brand" href="#">
-          {props.title}
+          <strong>{props.title}</strong>
         </a>
         <button
           className="navbar-toggler"
@@ -28,7 +29,7 @@ const Navbar = (props) => {
                 Home
               </a>
             </li> */}
-            {/* <li className="nav-item">
+        {/* <li className="nav-item">
               <a className="nav-link" href="#">
                 Link
               </a>
@@ -64,11 +65,9 @@ const Navbar = (props) => {
                 </li>
               </ul>
             </li> */}
-          {/* </ul>
+        {/* </ul>
         </div> */}
-        <div
-          class={`form-check form-switch text-${m}`}
-        >
+        <div class={`form-check form-switch text-${m}`}>
           <input
             class="form-check-input"
             type="checkbox"
@@ -77,7 +76,7 @@ const Navbar = (props) => {
             onClick={props.toggleMode}
           />
           <label class="form-check-label" htmlFor="flexSwitchCheckDefault">
-            Enable {m} mode
+            Dark Mode
           </label>
         </div>
       </div>

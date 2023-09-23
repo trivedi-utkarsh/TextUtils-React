@@ -21,7 +21,9 @@ const TextSection = (props) => {
     settext("");
   };
 
-  let words= text.length==0?0:text.split(" ").length;
+  let words = text.split(" ").filter((element) => {
+    return element.length !== 0;
+  }).length;
   return (
     <>
       <div
@@ -29,7 +31,9 @@ const TextSection = (props) => {
         style={{ color: props.mode === "dark" ? "white" : "black" }}
       >
         <div class="mb-3">
-          <h1 className="text-center my-3">Enter the text to analyze</h1>
+          <h2 className="text-center mt-5">
+            Try TextUtils - Word Counter, Character Counter And More...
+          </h2>
           <label for="exampleFormControlTextarea1" class="form-label"></label>
           <textarea
             class="form-control"
@@ -39,27 +43,42 @@ const TextSection = (props) => {
             value={text}
             onChange={handleText}
             style={{
-              backgroundColor: props.mode === "dark" ? "grey" : "white",
-              color: props.mode === "dark" ? "white" : "black",
+              backgroundColor: props.mode === "dark" ? "#c9c6c6" : "white",
+              color: props.mode === "dark" ? "201f1f" : "black",
             }}
           ></textarea>
           <button
             type="button"
-            className="btn btn-primary mx-4 my-2 "
+            className="btn mx-4 my-3"
+            style={{
+              backgroundColor: props.mode === "light" ? "#201f1f" : "#c9c6c6",
+              color: props.mode === "light" ? "white" : "black",
+              fontWeight:450
+            }}
             onClick={handleUpText}
           >
             Convert to Uppercase
           </button>
           <button
             type="button"
-            className="btn btn-primary mx-4 my-2 "
+            className="btn mx-4 my-3"
+            style={{
+              backgroundColor: props.mode === "light" ? "#201f1f" : "#c9c6c6",
+              color: props.mode === "light" ? "white" : "black",
+              fontWeight:450
+            }}
             onClick={handleSpace}
           >
             Remove the spaces
           </button>
           <button
             type="button"
-            className="btn btn-primary mx-4 my-2 "
+            className="btn mx-4 my-3"
+            style={{
+              backgroundColor: props.mode === "light" ? "#201f1f" : "#c9c6c6",
+              color: props.mode === "light" ? "white" : "black",
+              fontWeight:450
+            }}
             onClick={handleClear}
           >
             Clear
@@ -72,7 +91,7 @@ const TextSection = (props) => {
       >
         <h3 className="mx-2 my-3">Text Summary</h3>
         <p className="mx-2 my-3">
-          {words} Words {text.length} Characters
+          {words} Words <br/>{text.length} Characters
         </p>
       </div>
     </>
