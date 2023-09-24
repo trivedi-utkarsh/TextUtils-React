@@ -10,35 +10,32 @@ const TextSection = (props) => {
   const handleUpText = () => {
     let newText = text.toUpperCase();
     settext(newText);
-    props.showAlert("Text converted to Uppercase!","success");
+    props.showAlert("Text converted to Uppercase!", "success");
   };
 
   const handleSpace = () => {
     let newText = text.replace(/\s+/g, " ");
     settext(newText);
-    props.showAlert("Unnecessary Spaces Removed!","success");
+    props.showAlert("Unnecessary Spaces Removed!", "success");
   };
 
   const handleClear = () => {
     settext("");
-    props.showAlert("Text Cleared!","success");
+    props.showAlert("Text Cleared!", "success");
   };
 
   const handleDownText = () => {
     let newText = text.toLowerCase();
     settext(newText);
-    props.showAlert("Text converted to Lowercase!","success");
+    props.showAlert("Text converted to Lowercase!", "success");
   };
 
   const handleCopyText = () => {
-    var text = document.getElementById("myBox");
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
-    props.showAlert("Copied to Clipboard!","success");
+    navigator.clipboard.writeText(text);
+    props.showAlert("Copied to Clipboard!", "success");
   };
 
-  let words = text.split(" ").filter((element) => {
+  let words = text.split(/\s+/).filter((element) => {
     return element.length !== 0;
   }).length;
   return (
@@ -68,6 +65,7 @@ const TextSection = (props) => {
             }}
           ></textarea>
           <button
+            disabled={text.length === 0}
             type="button"
             className="btn mx-4 my-3"
             style={{
@@ -80,6 +78,7 @@ const TextSection = (props) => {
             Convert to Uppercase
           </button>
           <button
+            disabled={text.length === 0}
             type="button"
             className="btn mx-4 my-3"
             style={{
@@ -92,6 +91,7 @@ const TextSection = (props) => {
             Convert to Lowercase
           </button>
           <button
+            disabled={text.length === 0}
             type="button"
             className="btn mx-4 my-3"
             style={{
@@ -104,6 +104,7 @@ const TextSection = (props) => {
             Remove the spaces
           </button>
           <button
+            disabled={text.length === 0}
             type="button"
             className="btn mx-4 my-3"
             style={{
@@ -116,6 +117,7 @@ const TextSection = (props) => {
             Copy Text
           </button>
           <button
+            disabled={text.length === 0}
             type="button"
             className="btn mx-4 my-3"
             style={{
