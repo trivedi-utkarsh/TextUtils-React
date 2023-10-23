@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Navbar = (props) => {
   let m = props.mode === "light" ? "dark" : "light";
